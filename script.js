@@ -1,21 +1,34 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
     var params = {
-        length: parseInt(prompt("How long would you like your password to be?")),
         uppercase: confirm("Would you like to have uppercase characters?"),
         lowercase: confirm("would you like to have lowercase characters?"),
         specialChars: confirm("would you like to have special characters?"),
         numericalChars: confirm("would you like to have numerical characters?"),
+    };
+    while (
+        params.length < 8 ||
+        params.length > 120 ||
+        params.length === undefined
+    ) {
+        params.length = parseInt(
+            prompt("How long would you like your password to be? It must be greater than 8 and less than 120")
+        );
+
     }
+
+
+
+
     var password = generatePassword(params);
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
 
     var generateBtn = document.getElementById("password").values
+
 
 }
 
